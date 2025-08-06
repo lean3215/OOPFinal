@@ -1,0 +1,85 @@
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f6f9fc;
+}
+
+.food-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 4, 0.2, 2, 2);
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.food-card Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-wrap-text: true;
+}
+
+.food-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.selected-card {
+    -fx-border-color: #3fa796;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(63, 167, 150, 0.4), 4, 0.3, 2, 2);
+}
+
+.search-bar,
+.combo-box,
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 8 12;
+    -fx-pref-height: 38px;
+    -fx-font-size: 14px;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 8 10;
+}
+
+.button,
+.summary-button {
+    -fx-background-color: #3fa796;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 38px;
+    -fx-padding: 0 16;
+    -fx-font-size: 14px;
+}
+
+.button:hover,
+.summary-button:hover {
+    -fx-background-color: #358d80;
+}
+
+.button:focused,
+.text-field:focused,
+.combo-box:focused {
+    -fx-border-color: #3fa796;
+    -fx-border-width: 1.5px;
+}
+
+.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #444;
+}
+
+VBox, HBox {
+    -fx-spacing: 10px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,3 @@
+2025-08-04 20:51:42.248650+08:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FOOD_ITEMS" not found (this database is empty); SQL statement:
+select * from food_items [42104-224]
