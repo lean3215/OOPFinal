@@ -1,12 +1,8 @@
-// src/main/scala/model/User.scala
 package model
 
-trait User:
-  def username: String
-  def role: String
+import scalafx.beans.property.*
 
-case class Admin(username: String, password: String) extends User:
-  val role = "admin"
-
-case class RegularUser(username: String, password: String) extends User:
-  val role = "user"
+case class User(id: Long, username: String, password: String, role: String):
+  val usernameProperty = StringProperty(username)
+  val passwordProperty = StringProperty(password)
+  val roleProperty = StringProperty(role)
