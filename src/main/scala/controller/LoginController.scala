@@ -18,11 +18,11 @@ class LoginController:
     val username = usernameField.getText.trim
     val password = passwordField.getText.trim
     if username.isEmpty || password.isEmpty then
-      new Alert(AlertType.Warning) {
-        title = "Invalid Input"
-        headerText = "Missing Fields"
-        contentText = "Please enter username and password"
-      }.showAndWait()
+      val alert = new Alert(AlertType.WARNING)
+      alert.setTitle("Invalid Input")
+      alert.setHeaderText("Missing Fields")
+      alert.setContentText("Please enter username and password")
+      alert.showAndWait()
     else
       UserRepository.find(username, password) match
         case Some(user) =>
@@ -39,8 +39,8 @@ class LoginController:
           val currentStage = usernameField.getScene.getWindow.asInstanceOf[Stage]
           currentStage.close()
         case None =>
-          new Alert(AlertType.Error) {
-            title = "Login Failed"
-            headerText = "Invalid Credentials"
-            contentText = "Username or password incorrect"
-          }.showAndWait()
+          val alert = new Alert(AlertType.ERROR)
+          alert.setTitle("Login Failed")
+          alert.setHeaderText("Invalid Credentials")
+          alert.setContentText("Username or password incorrect")
+          alert.showAndWait()
