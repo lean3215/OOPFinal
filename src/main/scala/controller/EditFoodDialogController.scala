@@ -7,8 +7,7 @@ import scalafx.stage.Stage
 import javafx.fxml.FXML
 import javafx.scene.control.{TextField, ComboBox}
 
-class AddFoodDialogController:
-
+class EditFoodDialogController:
   @FXML private var nameField: TextField = _
   @FXML private var caloriesField: TextField = _
   @FXML private var proteinField: TextField = _
@@ -17,16 +16,25 @@ class AddFoodDialogController:
   @FXML private var categoryBox: ComboBox[String] = _
 
   private var dialogStage: Stage = _
-  private var onAdd: FoodItem => Unit = _
+  private var foodItem: FoodItem = _
+  private var onUpdate: FoodItem => Unit = _
 
   def setDialogStage(stage: Stage): Unit =
     dialogStage = stage
 
-  def setOnAdd(callback: FoodItem => Unit): Unit =
-    onAdd = callback
+  def setFoodItem(item: FoodItem): Unit =
+    foodItem = item
+    nameField.setText(item.name)
+    caloriesField.setText(item.calories.toString)
+    proteinField.setText(item.protein.toString)
+    fatField.setText(item.fat.toString)
+    carbsField.setText(item.carbs.toString)
+    categoryBox.setValue(item.category)
 
-  @FXML
-  private def handleAdd(): Unit =
+  def setOnUpdate(callback: FoodItem => Unit): Unit =
+    onUpdate = callback
+
+  @FXML private def handleUpdate(): Unit =
     val name = nameField.getText.trim
     val caloriesOpt = caloriesField.getText.trim.toIntOption
     val proteinOpt = proteinField.getText.trim.toDoubleOption
@@ -47,8 +55,7 @@ class AddFoodDialogController:
         initOwner(dialogStage)
       }.showAndWait()
     else
-      val newItem = FoodItem(
-        id = 0,
+      val updated = foodItem.copy(
         name = name,
         calories = caloriesOpt.get,
         protein = proteinOpt.get,
@@ -56,15 +63,14 @@ class AddFoodDialogController:
         carbs = carbsOpt.get,
         category = category.get
       )
-      if onAdd != null then onAdd(newItem)
+      if onUpdate != null then onUpdate(updated)
       new Alert(AlertType.Information) {
         title = "Success"
-        headerText = "Food Added"
-        contentText = s"$name has been added to the database."
+        headerText = "Food Updated"
+        contentText = s"$name has been updated."
         initOwner(dialogStage)
       }.showAndWait()
       dialogStage.close()
 
-  @FXML
-  private def handleCancel(): Unit =
+  @FXML private def handleCancel(): Unit =
     if dialogStage != null then dialogStage.close()

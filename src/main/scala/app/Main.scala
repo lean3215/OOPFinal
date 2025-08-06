@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.{Parent}
 import javafx.scene.image.Image
 import util.DBSetup
+import scalafx.Includes.*
 
 object Main extends JFXApp3:
   override def start(): Unit =
@@ -16,4 +17,4 @@ object Main extends JFXApp3:
       title = "Nutrition Software"
       icons += new Image(getClass.getResourceAsStream("/images/login-icon.jpg"))
       scene = new Scene(root)
-      scene.getStylesheets.add(getClass.getResource("/DarkTheme.css").toExternalForm)
+      scene().getStylesheets.add(getClass.getResource("/DarkTheme.css").toExternalForm)
