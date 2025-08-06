@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="view.AddFoodDialogController">
+    <children>
+        <Label text="Add New Food Item" />
+        <Label text="Name:" />
+        <TextField fx:id="nameField" />
+        <Label text="Calories:" />
+        <TextField fx:id="caloriesField" />
+        <Label text="Protein (g):" />
+        <TextField fx:id="proteinField" />
+        <Label text="Fat (g):" />
+        <TextField fx:id="fatField" />
+        <Label text="Carbohydrates (g):" />
+        <TextField fx:id="carbsField" />
+        <Label text="Category:" />
+        <ComboBox fx:id="categoryBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Fruits" />
+                    <String fx:value="Vegetables" />
+                    <String fx:value="Meat" />
+                    <String fx:value="Dairy" />
+                    <String fx:value="Grains" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label fx:id="errorLabel" textFill="RED" />
+        <HBox alignment="CENTER" spacing="10">
+            <children>
+                <Button text="Add" onAction="#handleAdd" />
+                <Button text="Cancel" onAction="#handleCancel" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15" />
+    </padding>
+</VBox>
