@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" padding="15" fx:controller="view.AddFoodController">
+  <children>
+    <Label text="%add.title" />
+    <Label text="%add.name" />
+    <TextField fx:id="nameField" />
+    <Label text="%add.calories" />
+    <TextField fx:id="caloriesField" />
+    <Label text="%add.protein" />
+    <TextField fx:id="proteinField" />
+    <Label text="%add.fat" />
+    <TextField fx:id="fatField" />
+    <Label text="%add.carbs" />
+    <TextField fx:id="carbsField" />
+    <Label text="%add.category" />
+    <ComboBox fx:id="categoryBox">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Fruits" />
+          <String fx:value="Vegetables" />
+          <String fx:value="Meat" />
+          <String fx:value="Dairy" />
+          <String fx:value="Grains" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label text="%add.date" />
+    <DatePicker fx:id="datePicker" />
+    <Label fx:id="errorLabel" textFill="red" />
+    <HBox spacing="10" alignment="CENTER">
+      <children>
+        <Button fx:id="addButton" text="%add.addButton" onAction="#handleAdd" />
+        <Button text="%add.cancelButton" onAction="#handleCancel" />
+      </children>
+    </HBox>
+  </children>
+</VBox>
