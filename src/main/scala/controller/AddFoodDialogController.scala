@@ -1,4 +1,4 @@
-package view
+package controller
 
 import model.FoodItem
 import scalafx.scene.control.Alert

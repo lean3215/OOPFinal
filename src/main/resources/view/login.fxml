@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.LoginController">
+  <children>
+    <VBox alignment="CENTER" spacing="10" prefWidth="300" AnchorPane.leftAnchor="50" AnchorPane.topAnchor="50">
+      <children>
+        <Label text="Nutrition Login" />
+        <TextField fx:id="usernameField" promptText="Username" />
+        <PasswordField fx:id="passwordField" promptText="Password" />
+        <Label fx:id="errorLabel" textFill="RED" />
+        <Button text="Login" onAction="#handleLogin" />
+      </children>
+      <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    </VBox>
+  </children>
+</AnchorPane>
